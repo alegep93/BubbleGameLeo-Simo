@@ -10,6 +10,7 @@ import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
@@ -60,7 +61,9 @@ public class ScoppiaLaBollaProject implements EntryPoint {
 				if (board.count >= 20) {
 					board.removeAllBubble();
 					board.go.setVisible(true);
+					board.punteggio.setVisible(true);
 					board.btnRitenta.setVisible(true);
+					board.punteggio.setHTML("Hai fatto: " + score.getScore() + " punti");
 					score.setVisible(false);
 					return false;
 				} else {
@@ -69,7 +72,7 @@ public class ScoppiaLaBollaProject implements EntryPoint {
 					return true;
 				}
 			}
-		}, 100);
+		}, 80);
 
 		// fa nascere nuove bubble
 		Scheduler.get().scheduleFixedDelay(new RepeatingCommand() {
@@ -79,13 +82,13 @@ public class ScoppiaLaBollaProject implements EntryPoint {
 					return false;
 				} else {
 					if (board.size() < 200) {
-						Bubble bubble = new Bubble((int) ((Math.random() * 55)+20), (int) (Math.random() * 900), 0);
+						Bubble bubble = new Bubble((int) ((Math.random() * 55)+20), (int) (Math.random() * (board.getOffsetWidth()-55)), 0);
 						board.addBubble(bubble);
 					}
 					return true;
 				}
 			}
-		}, 300);
+		}, 200);
 
 	}
 

@@ -11,7 +11,9 @@ import com.google.gwt.user.client.ui.HTML;
 
 public class Board extends FlowPanel {
 	public int count = 0;
+	private ScoreBoard sb;
 	public HTML go = new HTML("GAME OVER");
+	public HTML punteggio = new HTML();
 	public HTML btnRitenta = new HTML("");
 	List<Bubble> bubbles = new ArrayList<>();
 	SimpleEventBus bus;
@@ -23,12 +25,20 @@ public class Board extends FlowPanel {
 		this.getElement().getStyle().setBorderColor("black");
 		this.bus=bus;
 		this.add(go);
+		this.add(punteggio);
 		this.add(btnRitenta);
 		go.getElement().getStyle().setColor("black");
 		go.getElement().getStyle().setFontSize(120, Unit.PX);
 		go.getElement().getStyle().setTextAlign(TextAlign.CENTER);
 		go.getElement().getStyle().setMarginTop(150, Unit.PX);
 		go.setStyleName("gameover");
+		
+		punteggio.getElement().getStyle().setColor("black");
+		punteggio.getElement().getStyle().setFontSize(60, Unit.PX);
+		punteggio.getElement().getStyle().setTextAlign(TextAlign.CENTER);
+		punteggio.getElement().getStyle().setMarginTop(30, Unit.PX);
+		punteggio.setStyleName("punteggio");
+		
 		btnRitenta.setStyleName("image");
 		
 	}
