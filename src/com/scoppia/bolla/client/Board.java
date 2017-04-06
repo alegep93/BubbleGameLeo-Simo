@@ -29,7 +29,6 @@ public class Board extends FlowPanel {
 		go.getElement().getStyle().setTextAlign(TextAlign.CENTER);
 		go.getElement().getStyle().setMarginTop(150, Unit.PX);
 		go.setStyleName("gameover");
-		btnRitenta.getElement().getStyle().setMarginLeft(540, Unit.PX);
 		btnRitenta.setStyleName("image");
 		
 	}
